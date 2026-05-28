@@ -692,7 +692,6 @@ body {
 .info-icon.green  { background: var(--green-light); }
 .info-icon.orange { background: var(--orange-light); }
 .info-icon.blue   { background: #DBEAFE; }
-.info-row-body {}
 .info-label { font-size: 11px; color: var(--text-4); font-weight: 500; margin-bottom: 2px; }
 .info-value { font-size: 13px; color: var(--text-1); font-weight: 500; line-height: 1.4; }
 
