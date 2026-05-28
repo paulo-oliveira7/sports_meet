@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportMeet — Resultados</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <div class="status-bar">
+    <span>9:41</span>
+    <div class="status-icons">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><path d="M1 8h2v3H1zM5 6h2v5H5zM9 4h2v7H9zM13 2h2v9h-2z"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5c1.5-1.5 3.5-2.5 6-2.5s4.5 1 6 2.5M4 7.5c1-1 2.5-1.5 4-1.5s3 .5 4 1.5M6.5 10c.4-.4 1-.6 1.5-.6s1.1.2 1.5.6"/></svg>
+      <svg width="24" height="12" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="2.5" stroke="currentColor" stroke-opacity=".4" stroke-width="1"/><rect x="3" y="3" width="16" height="6" rx="1" fill="currentColor"/><rect x="22" y="4" width="1.5" height="4" rx=".5" fill="currentColor" opacity=".4"/></svg>
+    </div>
+  </div>
+
+  <div class="screen-header">
+    <a href="buscar.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+    <span class="screen-title">Resultados</span>
+  </div>
+
+  <div class="screen-content">
+
+    <p class="results-meta" id="results-meta"><b>1 resultado</b> encontrado</p>
+
+    <!-- Futebol com o Bruno — visibilidade controlada por JS -->
+    <div id="result-futebol" class="result-card">
+      <div class="result-thumb" style="background:var(--green-light)">⚽</div>
+      <div class="result-info">
+        <div class="result-name">Futebol com o Bruno</div>
+        <div class="result-addr">Rua Barão do Trinfo, 121</div>
+        <div class="result-tags">
+          <span class="tag">Dom · 19:00</span>
+          <span class="tag">20-30 anos</span>
+        </div>
+        <div class="result-creator">
+          <div class="avatar av-sm av-purple">B</div>
+          Criado por Bruno
+        </div>
+      </div>
+      <div class="result-actions">
+        <a href="detalhes-busca.html" class="link-orange">VER DETALHES ›</a>
+      </div>
+    </div>
+
+    <!-- Estado vazio — exibido por JS quando não há match -->
+    <div id="results-empty" style="display:none" class="empty-state">
+      <div class="empty-icon">🔍</div>
+      <div class="empty-title">Nenhum resultado encontrado</div>
+      <div class="empty-sub">Tente buscar por "futebol" ou selecione um dos filtros disponíveis.</div>
+    </div>
+
+    <a href="buscar.html" class="btn btn-outline mt-8">AJUSTAR FILTROS</a>
+
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="../index.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z"/></svg>
+      Início
+    </a>
+    <a href="buscar.html" class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Buscar
+    </a>
+    <a href="criar-evento.html" class="nav-plus">+</a>
+    <a href="agenda.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Agenda
+    </a>
+    <a href="perfil.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Perfil
+    </a>
+  </nav>
+
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>
