@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportMeet</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Status bar -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <div class="status-icons">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><path d="M1 8h2v3H1zM5 6h2v5H5zM9 4h2v7H9zM13 2h2v9h-2z"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5c1.5-1.5 3.5-2.5 6-2.5s4.5 1 6 2.5M4 7.5c1-1 2.5-1.5 4-1.5s3 .5 4 1.5M6.5 10c.4-.4 1-.6 1.5-.6s1.1.2 1.5.6"/></svg>
+      <svg width="24" height="12" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="2.5" stroke="currentColor" stroke-opacity=".4" stroke-width="1"/><rect x="3" y="3" width="16" height="6" rx="1" fill="currentColor"/><rect x="22" y="4" width="1.5" height="4" rx=".5" fill="currentColor" opacity=".4"/></svg>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="app-header">
+    <div class="logo">Sport<span class="green">Meet</span></div>
+    <div class="header-right">
+      <!-- Sino → página de notificações -->
+      <a href="pages/notificacoes.html" style="color:var(--text-2);display:flex;align-items:center">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+      </a>
+      <!-- Avatar → perfil -->
+      <a href="pages/perfil.html">
+        <div class="avatar av-md av-orange">LF</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Content — flex column para preencher o espaço corretamente -->
+  <div class="screen-content home-screen">
+
+    <!-- Esta semana (atalho para agenda) + Convites Pendentes (→ notificações) -->
+    <div class="home-grid">
+
+      <a href="pages/agenda.html" class="home-card" style="text-decoration:none;color:inherit;display:block">
+        <div class="home-card-title">Esta Semana</div>
+        <div class="mini-event">
+          <span class="dot dot-orange"></span>Basquete · Qui
+        </div>
+        <!-- Aparece só após adicionar o futebol -->
+        <div class="mini-event" id="week-futebol" style="display:none">
+          <span class="dot dot-green"></span>Futebol · Dom
+        </div>
+        <!-- Aparece só após criar a corrida -->
+        <div class="mini-event" id="week-corrida" style="display:none">
+          <span class="dot dot-blue"></span><span id="week-corrida-text">Corrida · Qua</span>
+        </div>
+        <!-- Aparece só após aceitar evento do feed -->
+        <div class="mini-event" id="week-feed" style="display:none">
+          <span class="dot dot-orange"></span><span id="week-feed-text">Evento · Feed</span>
+        </div>
+      </a>
+
+      <!-- Convites → notificações -->
+      <a href="pages/notificacoes.html" class="home-card" style="text-decoration:none;color:inherit;display:block">
+        <div class="home-card-title">Convites Pendentes</div>
+        <div class="mini-invite">
+          <div class="avatar av-sm av-blue">J</div>
+          <div><div class="mini-invite-name">João</div><div class="mini-invite-sport">Tênis</div></div>
+        </div>
+        <div class="mini-invite">
+          <div class="avatar av-sm av-purple">M</div>
+          <div><div class="mini-invite-name">Maria</div><div class="mini-invite-sport">Corrida</div></div>
+        </div>
+        <div class="mini-invite">
+          <div class="avatar av-sm av-teal">C</div>
+          <div><div class="mini-invite-name">Carlos</div><div class="mini-invite-sport">Corrida</div></div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Feed header -->
+    <div class="feed-header">
+      <span class="feed-title-text">Feed · Eventos para você</span>
+      <span class="badge-new" id="badge-new">12 novos</span>
+    </div>
+
+    <!-- Swipe stack — preenchido por JS -->
+    <div class="swipe-stack" id="swipe-stack"></div>
+
+    <!-- Botões aceitar / recusar -->
+    <div class="action-buttons">
+      <button class="action-btn reject" id="btn-reject">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <button class="action-btn accept" id="btn-accept">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </button>
+    </div>
+    <div class="swipe-hint">← recusar &nbsp;·&nbsp; adicionar →</div>
+
+  </div>
+
+  <!-- Bottom nav -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z"/></svg>
+      Início
+    </a>
+    <a href="pages/buscar.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Buscar
+    </a>
+    <a href="pages/criar-evento.html" class="nav-plus">+</a>
+    <a href="pages/agenda.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Agenda
+    </a>
+    <a href="pages/perfil.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Perfil
+    </a>
+  </nav>
+
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
