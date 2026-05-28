@@ -421,7 +421,6 @@ function initResults() {
   }
 }
 
-\
 function saveFilters() {
   const activePills = document.querySelectorAll('.filter-group .pill.active');
   const filters = Array.from(activePills).map(p => p.textContent.trim());
